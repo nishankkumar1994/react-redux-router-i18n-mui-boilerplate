@@ -1,0 +1,38 @@
+html {
+  font-size: vw(18px);
+
+  @include bp-design {
+    font-size: vwDesign(16px);
+  }
+
+  @include bp-tablet {
+    font-size: vwTablet(16px);
+  }
+
+  @include bp-mobile {
+    font-size: vwMobile(16px);
+  }
+}
+
+body {
+  background: $primary-background;
+}
+
+.ag-root ::-webkit-scrollbar {
+  width: rem(4);
+
+  &:horizontal {
+    height: rem(4);
+  }
+}
+.ag-root
+.ag-root ::-webkit-scrollbar-button {
+  display: none;
+}
+.ag-root ::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+.ag-root ::-webkit-scrollbar-thumb {
+  background: $secondary-blue;
+}

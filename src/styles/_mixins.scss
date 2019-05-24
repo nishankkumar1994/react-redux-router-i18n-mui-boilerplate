@@ -1,0 +1,110 @@
+@mixin placeholder-italic() {
+    // Firefox
+    &::-moz-placeholder {
+        font-style: italic;
+    }
+    &:-ms-input-placeholder {
+        font-style: italic;
+    }
+    // Internet Explorer 10+
+    &::-webkit-input-placeholder {
+        font-style: italic;
+    }
+    // Safari and Chrome
+    &:placeholder {
+        font-style: italic;
+    }
+}
+
+/* Calculate REM from PX */
+@function rem($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+/* Get VW for Desktop */
+@function vw($pixels, $context: $desktop-width) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1vw;
+}
+
+/* Get VW for Tablet */
+@function vwDesign($pixels, $context: $design-width) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1vw;
+}
+
+/* Get VW for Tablet */
+@function vwTablet($pixels, $context: $tab-width) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1vw;
+}
+
+/* Get VW for Mobile */
+@function vwMobile($pixels, $context: $mobile-width) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1vw;
+}
+
+/* Breakpoint for tablet */
+@mixin bp-design {
+  @media screen and (max-width: #{$design-width-media}) {
+    @content;
+  }
+}
+
+/* Breakpoint for tablet */
+@mixin bp-tablet {
+  @media screen and (max-width: #{$tablet-width-media}) {
+    @content;
+  }
+}
+
+/* Breakpoint for Mobile */
+@mixin bp-mobile {
+  @media screen and (max-width: #{$mobile-width-media}) {
+    @content;
+  }
+}
+
+/* Print Css media query */
+@mixin print-css {
+  @media print {
+    @content;
+  }
+}
